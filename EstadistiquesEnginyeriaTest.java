@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class MockDB extends DB
+class MockDB implements DB
 {
 	public boolean connect()
 	{
@@ -54,10 +54,10 @@ class EstadistiquesEnginyeriaTest
 		assertEquals(estad.getMyDB(),null);
 
 		// Constructor amb parametre DB
-		DB myDB = new mockDB();	// Hem de posar mockDB doncs no podem instanciar un objecte de tipus DB ja que és una classe abstracta (un interface) 
+		DB myDB = new MockDB();	// Hem de posar mockDB doncs no podem instanciar un objecte de tipus DB ja que és una classe abstracta (un interface) 
 
-		EstadistiquesEnginyeria estad = new EstadistiquesEnginyeria(myDB);
+		EstadistiquesEnginyeria estad2 = new EstadistiquesEnginyeria(myDB);
 
-		assertEquals(estad.getMyDB(), myDB);
+		assertEquals(estad2.getMyDB(), myDB);
 	}
 }
