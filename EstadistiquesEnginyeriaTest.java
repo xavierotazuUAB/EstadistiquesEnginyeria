@@ -53,11 +53,26 @@ class EstadistiquesEnginyeriaTest
 
 		assertEquals(estad.getMyDB(),null);
 
-		// Constructor amb parametre DB
+			// Constructor amb parametre DB
 		DB myDB = new MockDB();	// Hem de posar mockDB doncs no podem instanciar un objecte de tipus DB ja que és una classe abstracta (un interface) 
 
 		EstadistiquesEnginyeria estad2 = new EstadistiquesEnginyeria(myDB);
 
 		assertEquals(estad2.getMyDB(), myDB);
 	}
+
+
+		// Test setDB
+	@Test
+	void testsetDB()
+	{
+		EstadistiquesEnginyeria estad = new EstadistiquesEnginyeria();
+	
+		DB myDB = new MockDB();	// Hem de posar mockDB doncs no podem instanciar un objecte de tipus DB ja que és una classe abstracta (un interface) 
+	
+		estad.setDB(myDB);
+	
+		assertEquals(estad.getMyDB(), myDB);
+	}
+
 }
