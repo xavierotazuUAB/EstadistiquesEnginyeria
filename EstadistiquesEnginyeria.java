@@ -47,7 +47,7 @@ public class EstadistiquesEnginyeria
 		for(int i=0; i<nFiles;++i)
 		{
 			++nAlumnes;
-			if(Double.parseDouble(sResultat[i][0])>=5.0)
+			if(!sResultat[i][0].equals("NP") && Double.parseDouble(sResultat[i][0])>=5.0)
 			{
 				++nAprovats;
 			}
@@ -81,7 +81,7 @@ public class EstadistiquesEnginyeria
 		for(int i=0; i<nFiles;++i)
 		{
 			++nAlumnes;
-			if(Double.parseDouble(sResultat[i][0])<5.0)
+			if(!sResultat[i][0].equals("NP") && Double.parseDouble(sResultat[i][0])<5.0)
 			{
 				++nSuspesos;
 			}
@@ -127,10 +127,6 @@ public class EstadistiquesEnginyeria
 		return dPerCent;
 	};
 
-	public double PerCentsuspesos(String Assignatura, String Nota);
-	
-	public double PerCentNoPresentats(String Assignatura, String Nota);
-	
 	
 	// Metodes per fer test
 	
