@@ -19,6 +19,21 @@ class MockDB implements DB
 			String[][] sTmp = {{"6.0"},{"7.0"},{"9.0"},{"10.0"},{"5.5"},{"3.5"},{"0.0"},{"1.0"},{"1.0"},{"4.5"}};
 			sResultatQuery = sTmp;			
 		}
+		if(q.equals("LPNPract"))
+		{
+			String[][] sTmp = {{"4.0"},{"7.0"},{"3.0"},{"10.0"},{"6.5"},{"3.5"},{"0.0"},{"9.0"},{"1.0"},{"4.5"}};
+			sResultatQuery = sTmp;			
+		}
+		if(q.equals("LPNTeo"))
+		{
+			String[][] sTmp = {{"4.0"},{"2.0"},{"3.0"},{"1.0"},{"2.5"},{"3.5"},{"0.0"},{"1.0"},{"1.0"},{"4.5"}};
+			sResultatQuery = sTmp;			
+		}
+		if(q.equals("LPNFinal"))
+		{
+			String[][] sTmp = {{"9.0"},{"6.0"},{"5.0"},{"6.0"},{"8.5"},{"7.5"},{"10.0"},{"9.0"},{"7.0"},{"5.5"}};
+			sResultatQuery = sTmp;			
+		}
 		
 		return sResultatQuery;		
 	}
@@ -69,7 +84,10 @@ class EstadistiquesEnginyeriaTest
 		// on la meitat seran aprovats i l'altra meitat seran suspesos.
 		
 		assertEquals(estad.PerCentAprovats("TQS","NFinal"),0.5);
-	}
+		assertEquals(estad.PerCentAprovats("LP","NPract"),0.4);
+		assertEquals(estad.PerCentAprovats("LP","NTeo"),0.0);
+		assertEquals(estad.PerCentAprovats("LP","NFinal"),1.0);
+}
 
 		// Test Constructor
 	@Test
