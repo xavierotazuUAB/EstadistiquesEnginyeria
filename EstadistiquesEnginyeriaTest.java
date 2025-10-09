@@ -36,8 +36,8 @@ class MockDB implements DB
 		}
 		if(q.equals("RSNFinal"))
 		{
-			String[][] sTmp = {{"9.0"},{"NP"},{"5.0"},{"6.0"},{"8.5"},{"7.5"},{"10.0"},{"9.0"},{"7.0"},{"NP"}};
-			sResultatQuery = sTmp;			
+			String[][] sTmp = {{"9.0"},{"NP"},{"5.0"},{"6.0"},{"8.5"},{"3.5"},{"10.0"},{"1.0"},{"7.0"},{"NP"}};
+			sResultatQuery = sTmp;
 		}
 		
 		return sResultatQuery;		
@@ -94,6 +94,7 @@ class EstadistiquesEnginyeriaTest
 		assertEquals(estad.PerCentAprovats("LP","NPract"),0.4);
 		assertEquals(estad.PerCentAprovats("LP","NTeo"),0.0);
 		assertEquals(estad.PerCentAprovats("LP","NFinal"),1.0);
+		assertEquals(estad.PerCentAprovats("RS","NFinal"),0.6);
 	}
 
 	@Test
@@ -105,6 +106,7 @@ class EstadistiquesEnginyeriaTest
 		assertEquals(estad.PerCentSuspesos("LP","NPract"),0.6);
 		assertEquals(estad.PerCentSuspesos("LP","NTeo"),1.0);
 		assertEquals(estad.PerCentSuspesos("LP","NFinal"),0.0);
+		assertEquals(estad.PerCentSuspesos("RS","NFinal"),0.2);
 
 	}
 
