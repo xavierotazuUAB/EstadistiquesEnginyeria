@@ -34,6 +34,11 @@ class MockDB implements DB
 			String[][] sTmp = {{"9.0"},{"6.0"},{"5.0"},{"6.0"},{"8.5"},{"7.5"},{"10.0"},{"9.0"},{"7.0"},{"5.5"}};
 			sResultatQuery = sTmp;			
 		}
+		if(q.equals("RSNFinal"))
+		{
+			String[][] sTmp = {{"9.0"},{"NP"},{"5.0"},{"6.0"},{"8.5"},{"7.5"},{"10.0"},{"9.0"},{"7.0"},{"NP"}};
+			sResultatQuery = sTmp;			
+		}
 		
 		return sResultatQuery;		
 	}
@@ -58,25 +63,27 @@ class MockCreadorQuerySQL extends CreadorQuerySQL
 
 class EstadistiquesEnginyeriaTest
 {
+	EstadistiquesEnginyeria estad;
+	CreadorQuerySQL creadorQerySQL;
+	DB myDB;
 
 	@BeforeEach
 	void setUp() throws Exception
 	{
+		estad = new EstadistiquesEnginyeria();
+		
+		// Mock de CreadorQuerySQL
+		creadorQerySQL = new MockCreadorQuerySQL();
+		// Mock de DB
+		myDB = new MockDB();
+		
+		estad.setCreadorQuerySQL(creadorQerySQL); // Li passem a estad el creador de queries SQL
+		estad.setDB(myDB);
 	}
 
 	@Test
 	void testPerCentAprovats()
 	{
-		EstadistiquesEnginyeria estad = new EstadistiquesEnginyeria();
-		
-		// Mock de CreadorQuerySQL
-		CreadorQuerySQL creadorQerySQL = new MockCreadorQuerySQL();
-		// Mock de DB
-		DB myDB = new MockDB();
-		
-		estad.setCreadorQuerySQL(creadorQerySQL); // Li passem a estad el creador de queries SQL
-		estad.setDB(myDB);
-
 		
 		// Cas simple, amb un 50% d'aprovats.
 		
@@ -92,15 +99,6 @@ class EstadistiquesEnginyeriaTest
 	@Test
 	void testPerCentSuspesos()
 	{
-		EstadistiquesEnginyeria estad = new EstadistiquesEnginyeria();
-		
-		// Mock de CreadorQuerySQL
-		CreadorQuerySQL creadorQerySQL = new MockCreadorQuerySQL();
-		// Mock de DB
-		DB myDB = new MockDB();
-		
-		estad.setCreadorQuerySQL(creadorQerySQL); // Li passem a estad el creador de queries SQL
-		estad.setDB(myDB);
 
 			// Aprofitem les mateixes matrius i calculem el percentatge de suspesos (1-aprovats)
 		assertEquals(estad.PerCentSuspesos("TQS","NFinal"),0.5);
@@ -110,16 +108,21 @@ class EstadistiquesEnginyeriaTest
 
 	}
 
+	@Test
+	void testPerCentNoPresentats()
+	{
+		assertEquals(estad.PerCentNoPresentats("RS","NFinal"),0.2);
+	}
 
 		// Test Constructor
 	@Test
 	void testEstadistiquesEnginyeria()
 	{
 			// Constructor per defecte
-		EstadistiquesEnginyeria estad = new EstadistiquesEnginyeria();
+		EstadistiquesEnginyeria estadbuit = new EstadistiquesEnginyeria();
 
-		assertEquals(estad.getMyDB(),null);
-		assertEquals(estad.getCreadorQuerySQL(),null);
+		assertEquals(estadbuit.getMyDB(),null);
+		assertEquals(estadbuit.getCreadorQuerySQL(),null);
 
 			// Constructor amb parametre DB
 		DB myDB = new MockDB();	// Hem de posar mockDB doncs no podem instanciar un objecte de tipus DB ja que és una classe abstracta (un interface) 
@@ -134,13 +137,13 @@ class EstadistiquesEnginyeriaTest
 	@Test
 	void testsetDB()
 	{
-		EstadistiquesEnginyeria estad = new EstadistiquesEnginyeria();
+		EstadistiquesEnginyeria estad2 = new EstadistiquesEnginyeria();
 	
 		DB myDB = new MockDB();	// Hem de posar mockDB doncs no podem instanciar un objecte de tipus DB ja que és una classe abstracta (un interface) 
 	
-		estad.setDB(myDB);
+		estad2.setDB(myDB);
 	
-		assertEquals(estad.getMyDB(), myDB);
+		assertEquals(estad2.getMyDB(), myDB);
 	}
 
 }
