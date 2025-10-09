@@ -2,10 +2,12 @@
 public class EstadistiquesEnginyeria
 {
 	DB myDB;
+	CreadorQuerySQL myCreador;
 	
 	public EstadistiquesEnginyeria()
 	{
 		myDB = null;
+		myCreador = null;
 	}
 	
 	public EstadistiquesEnginyeria(DB pDB)
@@ -16,6 +18,11 @@ public class EstadistiquesEnginyeria
 	public void setDB(DB pDB)
 	{
 		myDB = pDB;
+	}
+
+	public void setCreadorQuerySQL(CreadorQuerySQL pCreador)
+	{
+		myCreador = pCreador;
 	}
 
 	public double PerCentAprovats(String Assignatura, String Nota)
@@ -47,5 +54,10 @@ public class EstadistiquesEnginyeria
 	DB getMyDB()
 	{
 		return myDB;
+	}
+
+	CreadorQuerySQL getCreadorQuerySQL()
+	{
+		return myCreador;
 	}
 }

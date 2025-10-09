@@ -23,7 +23,7 @@ class MockDB implements DB
 	
 }
 
-class MockCreadorQueriesSQL extends CreadorQuerySQL
+class MockCreadorQuerySQL extends CreadorQuerySQL
 {
 	public String CrearQuery(String Assignatura, String Nota)
 	{
@@ -46,7 +46,13 @@ class EstadistiquesEnginyeriaTest
 	void testPerCentAprovats()
 	{
 		EstadistiquesEnginyeria estad = new EstadistiquesEnginyeria();
+		
+		// Mock de CreadorQuerySQL
+		CreadorQuerySQL creadorQerySQL = new MockCreadorQuerySQL();
+		
+		estad.setCreadorQuerySQL(creadorQerySQL); // Li passem a estad el creador de queries SQL
 
+		
 		// Cas simple, amb un 50% d'aprovats.
 		
 		// Decidim que per aquest cas de prova la DB haurà de tornar una taula amb les notes dels diferents estudiants,
@@ -63,6 +69,7 @@ class EstadistiquesEnginyeriaTest
 		EstadistiquesEnginyeria estad = new EstadistiquesEnginyeria();
 
 		assertEquals(estad.getMyDB(),null);
+		assertEquals(estad.getCreadorQuerySQL(),null);
 
 			// Constructor amb parametre DB
 		DB myDB = new MockDB();	// Hem de posar mockDB doncs no podem instanciar un objecte de tipus DB ja que és una classe abstracta (un interface) 
