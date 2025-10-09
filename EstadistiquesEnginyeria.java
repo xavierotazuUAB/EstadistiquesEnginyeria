@@ -93,6 +93,40 @@ public class EstadistiquesEnginyeria
 		return dPerCent;
 	};
 	
+	public double PerCentNoPresentats(String Assignatura, String Nota)
+	{
+		double dPerCent = 0.0;
+		String sQuery ="";
+		
+		// Creacio una query SQL a partir dels parametres d'entrada
+		
+		sQuery = myCreador.CrearQuery(Assignatura, Nota);
+		
+		myDB.connect();
+		String[][] sResultat = myDB.query(sQuery);		
+		myDB.close();
+
+		// Calcul del percentatge
+
+		int nFiles = sResultat.length;
+		int nNoPresentats = 0;
+		int nAlumnes = 0;
+		
+		for(int i=0; i<nFiles;++i)
+		{
+			++nAlumnes;
+			if(sResultat[i][0].equals("NP"))
+			{
+				++nNoPresentats;
+			}
+				
+		}
+		
+		dPerCent = nNoPresentats / (double) nAlumnes;
+		
+		return dPerCent;
+	};
+
 	public double PerCentsuspesos(String Assignatura, String Nota);
 	
 	public double PerCentNoPresentats(String Assignatura, String Nota);
