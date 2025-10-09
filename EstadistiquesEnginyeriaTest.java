@@ -14,10 +14,10 @@ class MockDB implements DB
 	{
 		String[][] sResultatQuery =	{{""}};
 		
-		if(q=="TQSNFinal")
+		if(q.equals("TQSNFinal"))
 		{
 			String[][] sTmp = {{"6.0"},{"7.0"},{"9.0"},{"10.0"},{"5.5"},{"3.5"},{"0.0"},{"1.0"},{"1.0"},{"4.5"}};
-			sResultatQuery = sTmp;
+			sResultatQuery = sTmp;			
 		}
 		
 		return sResultatQuery;		

@@ -35,19 +35,19 @@ public class EstadistiquesEnginyeria
 		sQuery = myCreador.CrearQuery(Assignatura, Nota);
 		
 		myDB.connect();
-		String sResultat[][] = myDB.query(sQuery);		
+		String[][] sResultat = myDB.query(sQuery);		
 		myDB.close();
 
 		// Calcul del percentatge
 
-		int nFiles = sResultat[0].length;
+		int nFiles = sResultat.length;
 		int nAprovats = 0;
 		int nAlumnes = 0;
 		
 		for(int i=0; i<nFiles;++i)
 		{
 			++nAlumnes;
-			if(Double.parseDouble(sResultat[0][i])>=5)
+			if(Double.parseDouble(sResultat[i][0])>=5.0)
 			{
 				++nAprovats;
 			}
