@@ -56,8 +56,11 @@ class EstadistiquesEnginyeriaTest
 		
 		// Mock de CreadorQuerySQL
 		CreadorQuerySQL creadorQerySQL = new MockCreadorQuerySQL();
+		// Mock de DB
+		DB myDB = new MockDB();
 		
 		estad.setCreadorQuerySQL(creadorQerySQL); // Li passem a estad el creador de queries SQL
+		estad.setDB(myDB);
 
 		
 		// Cas simple, amb un 50% d'aprovats.
