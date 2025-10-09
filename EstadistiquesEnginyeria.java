@@ -20,7 +20,20 @@ public class EstadistiquesEnginyeria
 
 	public double PerCentAprovats(String Assignatura, String Nota)
 	{
-		return 0.0;
+		double dPerCent = 0.0;
+		String sQuery ="";
+		
+		// Creacio una query SQL a partir dels parametres d'entrada
+		
+		// ...
+		
+		myDB.connect();		
+		myDB.query(sQuery);		
+		myDB.close();
+
+		// Calcul del percentatge
+		
+		return dPerCent;
 	};
 	
 	
