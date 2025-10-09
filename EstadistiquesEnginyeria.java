@@ -12,6 +12,11 @@ public class EstadistiquesEnginyeria
 	{
 		myDB = pDB;
 	}
+	
+	public void setDB(DB pDB)
+	{
+		myDB = pDB;
+	}
 
 	public double PerCentAprovats(String Assignatura, String Nota)
 	{
