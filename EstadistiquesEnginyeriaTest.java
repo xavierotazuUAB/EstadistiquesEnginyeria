@@ -7,6 +7,7 @@ class MockDB implements DB
 {
 	public boolean connect()
 	{
+		// Com que realment no hem de fer cap connexio podem retornar el valor que vulguem
 		return true;
 	}
 	
@@ -14,6 +15,8 @@ class MockDB implements DB
 	{
 		String[][] sResultatQuery =	{{""}};
 		
+		// Cadascuna de les queries que ens arriben a traves del parametre 'q' ens determina quins valors hem de tornar
+
 		if(q.equals("TQSNFinal"))
 		{
 			String[][] sTmp = {{"6.0"},{"7.0"},{"9.0"},{"10.0"},{"5.5"},{"3.5"},{"0.0"},{"1.0"},{"1.0"},{"4.5"}};
@@ -45,6 +48,7 @@ class MockDB implements DB
 	
 	public boolean close()
 	{
+		// Com que realment no hem de tancar cap connexio podem retornar el valor que vulguem
 		return true;
 	}
 	
@@ -54,6 +58,9 @@ class MockCreadorQuerySQL extends CreadorQuerySQL
 {
 	public String CrearQuery(String Assignatura, String Nota)
 	{
+		// Com que no és necessari crear una query SQL correcta, decidim crear-la simplement amb la combinacio dels dos parametres.
+		// Aquesta query és la que haura d'utilitzar el mockDB per saber quins valors ha de tornar
+		
 		String sQuery = Assignatura + Nota;
 		
 		return sQuery;
@@ -64,7 +71,7 @@ class MockCreadorQuerySQL extends CreadorQuerySQL
 class EstadistiquesEnginyeriaTest
 {
 	EstadistiquesEnginyeria estad;
-	CreadorQuerySQL creadorQerySQL;
+	CreadorQuerySQL creadorQuerySQL;
 	DB myDB;
 
 	@BeforeEach
@@ -73,11 +80,11 @@ class EstadistiquesEnginyeriaTest
 		estad = new EstadistiquesEnginyeria();
 		
 		// Mock de CreadorQuerySQL
-		creadorQerySQL = new MockCreadorQuerySQL();
+		creadorQuerySQL = new MockCreadorQuerySQL();
 		// Mock de DB
 		myDB = new MockDB();
 		
-		estad.setCreadorQuerySQL(creadorQerySQL); // Li passem a estad el creador de queries SQL
+		estad.setCreadorQuerySQL(creadorQuerySQL); // Li passem a estad el creador de queries SQL
 		estad.setDB(myDB);
 	}
 
