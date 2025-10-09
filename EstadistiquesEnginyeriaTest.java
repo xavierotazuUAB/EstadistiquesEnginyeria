@@ -23,6 +23,17 @@ class MockDB implements DB
 	
 }
 
+class MockCreadorQueriesSQL extends CreadorQuerySQL
+{
+	public String CrearQuery(String Assignatura, String Nota)
+	{
+		String sQuery = "";
+		
+		return sQuery;
+	}
+}
+
+
 class EstadistiquesEnginyeriaTest
 {
 
