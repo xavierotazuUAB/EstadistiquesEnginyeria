@@ -87,7 +87,29 @@ class EstadistiquesEnginyeriaTest
 		assertEquals(estad.PerCentAprovats("LP","NPract"),0.4);
 		assertEquals(estad.PerCentAprovats("LP","NTeo"),0.0);
 		assertEquals(estad.PerCentAprovats("LP","NFinal"),1.0);
-}
+	}
+
+	@Test
+	void testPerCentSuspesos()
+	{
+		EstadistiquesEnginyeria estad = new EstadistiquesEnginyeria();
+		
+		// Mock de CreadorQuerySQL
+		CreadorQuerySQL creadorQerySQL = new MockCreadorQuerySQL();
+		// Mock de DB
+		DB myDB = new MockDB();
+		
+		estad.setCreadorQuerySQL(creadorQerySQL); // Li passem a estad el creador de queries SQL
+		estad.setDB(myDB);
+
+			// Aprofitem les mateixes matrius i calculem el percentatge de suspesos (1-aprovats)
+		assertEquals(estad.PerCentAprovats("TQS","NFinal"),0.5);
+		assertEquals(estad.PerCentAprovats("LP","NPract"),0.6);
+		assertEquals(estad.PerCentAprovats("LP","NTeo"),1.0);
+		assertEquals(estad.PerCentAprovats("LP","NFinal"),0.0);
+
+	}
+
 
 		// Test Constructor
 	@Test
