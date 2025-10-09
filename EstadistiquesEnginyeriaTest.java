@@ -103,10 +103,10 @@ class EstadistiquesEnginyeriaTest
 		estad.setDB(myDB);
 
 			// Aprofitem les mateixes matrius i calculem el percentatge de suspesos (1-aprovats)
-		assertEquals(estad.PerCentAprovats("TQS","NFinal"),0.5);
-		assertEquals(estad.PerCentAprovats("LP","NPract"),0.6);
-		assertEquals(estad.PerCentAprovats("LP","NTeo"),1.0);
-		assertEquals(estad.PerCentAprovats("LP","NFinal"),0.0);
+		assertEquals(estad.PerCentSuspesos("TQS","NFinal"),0.5);
+		assertEquals(estad.PerCentSuspesos("LP","NPract"),0.6);
+		assertEquals(estad.PerCentSuspesos("LP","NTeo"),1.0);
+		assertEquals(estad.PerCentSuspesos("LP","NFinal"),0.0);
 
 	}
 
