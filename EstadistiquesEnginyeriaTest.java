@@ -12,7 +12,14 @@ class MockDB implements DB
 	
 	public String [][] query(String q)
 	{
-		String[][] sResultatQuery;
+		String[][] sResultatQuery =	{{""}};
+		
+		if(q=="TQSNFinal")
+		{
+			String[][] sTmp = {{"6.0"},{"7.0"},{"9.0"},{"10.0"},{"5.5"},{"3.5"},{"0.0"},{"1.0"},{"1.0"},{"4.5"}};
+			sResultatQuery = sTmp;
+		}
+		
 		return sResultatQuery;		
 	}
 	
@@ -27,7 +34,7 @@ class MockCreadorQuerySQL extends CreadorQuerySQL
 {
 	public String CrearQuery(String Assignatura, String Nota)
 	{
-		String sQuery = "";
+		String sQuery = Assignatura + Nota;
 		
 		return sQuery;
 	}

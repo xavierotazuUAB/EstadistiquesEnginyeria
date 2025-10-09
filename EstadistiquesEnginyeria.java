@@ -32,7 +32,7 @@ public class EstadistiquesEnginyeria
 		
 		// Creacio una query SQL a partir dels parametres d'entrada
 		
-		// ...
+		sQuery = myCreador.CrearQuery(Assignatura, Nota);
 		
 		myDB.connect();		
 		myDB.query(sQuery);		
