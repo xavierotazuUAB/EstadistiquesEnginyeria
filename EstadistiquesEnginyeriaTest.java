@@ -127,12 +127,18 @@ class EstadistiquesEnginyeriaTest
 		
 		assertEquals(estad.PerCentSuspesos("RS","NFinal"),0.2); // No es 0.4 (1-0.6) perque en la taula de resultats hi ha dos "NP"
 
+		// Taula de resultats buida.
+		assertEquals(estad.PerCentSuspesos("TQS","NPract"),0.0);
+
 	}
 
 	@Test
 	void testPerCentNoPresentats()
 	{
 		assertEquals(estad.PerCentNoPresentats("RS","NFinal"),0.2);
+
+		// Taula de resultats buida.
+		assertEquals(estad.PerCentNoPresentats("TQS","NPract"),0.0);
 	}
 
 		// Test Constructor
