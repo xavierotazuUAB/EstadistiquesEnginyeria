@@ -89,7 +89,8 @@ public class EstadistiquesEnginyeria
 				
 		}
 		
-		dPerCent = nSuspesos / (double) nAlumnes;
+		if(nAlumnes>0)
+			dPerCent = nSuspesos / (double) nAlumnes;
 		
 		return dPerCent;
 	};
@@ -123,7 +124,8 @@ public class EstadistiquesEnginyeria
 				
 		}
 		
-		dPerCent = nNoPresentats / (double) nAlumnes;
+		if(nAlumnes>0)
+			dPerCent = nNoPresentats / (double) nAlumnes;
 		
 		return dPerCent;
 	};
