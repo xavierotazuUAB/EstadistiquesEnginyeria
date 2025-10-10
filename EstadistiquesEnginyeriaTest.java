@@ -113,7 +113,8 @@ class EstadistiquesEnginyeriaTest
 		assertEquals(estad.PerCentSuspesos("LP","NPract"),0.6);
 		assertEquals(estad.PerCentSuspesos("LP","NTeo"),1.0);
 		assertEquals(estad.PerCentSuspesos("LP","NFinal"),0.0);
-		assertEquals(estad.PerCentSuspesos("RS","NFinal"),0.2);
+		
+		assertEquals(estad.PerCentSuspesos("RS","NFinal"),0.2); // No es 0.4 (1-0.6) perque en la taula de resultats hi ha dos "NP"
 
 	}
 
