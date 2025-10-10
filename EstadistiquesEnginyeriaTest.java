@@ -3,6 +3,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+		// **************
+		// MOCK OBJECTS
+		// **************
+
 class MockDB implements DB
 {
 	public boolean connect()
@@ -75,6 +79,10 @@ class MockCreadorQuerySQL extends CreadorQuerySQL
 	}
 }
 
+
+		// **************
+		// TESTS
+		// **************
 
 class EstadistiquesEnginyeriaTest
 {
