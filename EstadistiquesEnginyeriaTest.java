@@ -47,7 +47,7 @@ class MockDB implements DB
 		if(q.equals("TQSNFinal"))
 		{
 			// El seguent codi seria equivalent a no fer res, doncs sResultatQuery ja ha estat inicialitzada a sobre amb el mateix valor.
-//			String[][] sTmp = {{}};
+//			String[][] sTmp = {};
 //			sResultatQuery = sTmp;			
 		}
 
