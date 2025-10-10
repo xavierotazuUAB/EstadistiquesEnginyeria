@@ -42,7 +42,15 @@ class MockDB implements DB
 			String[][] sTmp = {{"9.0"},{"NP"},{"5.0"},{"6.0"},{"8.5"},{"3.5"},{"10.0"},{"1.0"},{"7.0"},{"NP"}};
 			sResultatQuery = sTmp;
 		}
-		
+
+		// Taula buida
+		if(q.equals("TQSNFinal"))
+		{
+			// El seguent codi seria equivalent a no fer res, doncs sResultatQuery ja ha estat inicialitzada a sobre amb el mateix valor.
+//			String[][] sTmp = {{""}};
+//			sResultatQuery = sTmp;			
+		}
+
 		return sResultatQuery;		
 	}
 	
@@ -102,6 +110,9 @@ class EstadistiquesEnginyeriaTest
 		assertEquals(estad.PerCentAprovats("LP","NTeo"),0.0);
 		assertEquals(estad.PerCentAprovats("LP","NFinal"),1.0);
 		assertEquals(estad.PerCentAprovats("RS","NFinal"),0.6);
+		
+		// Taula de resultats buida.
+		assertEquals(estad.PerCentAprovats("TQS","NPract"),0.0);
 	}
 
 	@Test
