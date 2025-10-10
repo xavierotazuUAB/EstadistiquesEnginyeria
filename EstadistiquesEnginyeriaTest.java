@@ -13,7 +13,7 @@ class MockDB implements DB
 	
 	public String [][] query(String q)
 	{
-		String[][] sResultatQuery =	{{""}};
+		String[][] sResultatQuery =	{{}};
 		
 		// Cadascuna de les queries que ens arriben a traves del parametre 'q' ens determina quins valors hem de tornar
 
@@ -47,7 +47,7 @@ class MockDB implements DB
 		if(q.equals("TQSNFinal"))
 		{
 			// El seguent codi seria equivalent a no fer res, doncs sResultatQuery ja ha estat inicialitzada a sobre amb el mateix valor.
-//			String[][] sTmp = {{""}};
+//			String[][] sTmp = {{}};
 //			sResultatQuery = sTmp;			
 		}
 
