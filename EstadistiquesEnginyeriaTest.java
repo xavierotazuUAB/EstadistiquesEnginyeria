@@ -13,7 +13,7 @@ class MockDB implements DB
 	
 	public String [][] query(String q)
 	{
-		String[][] sResultatQuery =	{{}};
+		String[][] sResultatQuery =	{};
 		
 		// Cadascuna de les queries que ens arriben a traves del parametre 'q' ens determina quins valors hem de tornar
 

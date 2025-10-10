@@ -54,7 +54,8 @@ public class EstadistiquesEnginyeria
 				
 		}
 		
-		dPerCent = nAprovats / (double) nAlumnes;
+		if(nAlumnes>0)
+			dPerCent = nAprovats / (double) nAlumnes;
 		
 		return dPerCent;
 	};
