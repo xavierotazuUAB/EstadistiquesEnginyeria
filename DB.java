@@ -1,4 +1,4 @@
-
+// DRC: Interfaz db
 public interface DB
 {
 	public boolean connect();
